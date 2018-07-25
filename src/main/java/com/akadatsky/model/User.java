@@ -2,24 +2,32 @@ package com.akadatsky.model;
 
 public class User {
 
-    private String name;
+    private String firstName;
+    private String secondName;
     private int age;
 
-    public User(String name, int age) {
-        this.name = name;
+
+    public User(String firstName, String secondName, int age) {
+        this.firstName = firstName;
+        this.secondName = secondName;
         this.age = age;
     }
 
-    public User(String name) {
-        this.name = name;
+
+    public String getFirstName() {
+        return firstName;
     }
 
-    public String getName() {
-        return name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getSecondName() {
+        return secondName;
+    }
+
+    public void setSecondName(String secondName) {
+        this.secondName = secondName;
     }
 
     public int getAge() {
@@ -29,4 +37,5 @@ public class User {
     public void setAge(int age) {
         this.age = age;
     }
+
 }
