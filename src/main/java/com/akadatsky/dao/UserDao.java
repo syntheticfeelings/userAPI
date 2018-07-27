@@ -33,7 +33,7 @@ public class UserDao {
 
     }
 
-    public void reWrite(){
+    public void reWrite() {
         try (FileWriter writer = new FileWriter(file)) {
             writer.append(gson.toJson(users));
         } catch (IOException e) {
