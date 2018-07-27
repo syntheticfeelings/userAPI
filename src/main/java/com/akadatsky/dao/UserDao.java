@@ -29,13 +29,18 @@ public class UserDao {
 
     public void addUser(User user) {
         users.add(user);
+        reWrite();
+
+    }
+
+    public void reWrite(){
         try (FileWriter writer = new FileWriter(file)) {
             writer.append(gson.toJson(users));
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
+
 
     public UserList getUsersFromFile() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(
@@ -64,6 +69,7 @@ public class UserDao {
         for (User user : users) {
             if (user.getFirstName().equalsIgnoreCase(name)) {
                 users.remove(user);
+                reWrite();
                 return true;
             }
         }
@@ -74,6 +80,7 @@ public class UserDao {
         for (User user : users) {
             if (user.getFirstName().equalsIgnoreCase(testUser.getFirstName())) {
                 user.setAge(testUser.getAge());
+                reWrite();
                 return true;
             }
         }
